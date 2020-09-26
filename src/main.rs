@@ -5,6 +5,9 @@ use telegram_bot::*;
 
 async fn tst_msg(api: Api, message: Message) -> Result<(), Error> {
     api.send(message.text_reply("hello manny")).await?;
+
+    api.send(message.chat.text("then I should send PR to repo..."))
+        .await?;
     Ok(())
 }
 
